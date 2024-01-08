@@ -13,7 +13,8 @@ def twoSum(nums, target):
               complement = target - nums[i]
               print("complement out",complement)
               if complement in num_dict and num_dict[complement] != i:
-                    print(complement)
+                    print("complement in",complement)
+                    print("um dict complement",num_dict[complement])
                     return {i, num_dict[complement]}
 
 print(twoSum(nums=[3,2,4],target=6))
