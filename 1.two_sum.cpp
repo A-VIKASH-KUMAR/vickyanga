@@ -9,31 +9,34 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         vector<int> result;
+      unordered_map<int, int> umap;
       cout << nums.size()<< endl;
     //   sort(nums.begin(), nums.end());
 
-      for (int i = 0; i < nums.size() -1; i++)
+      for (int i = 0; i < nums.size(); i++)
       {
-         if (nums[i] == target - nums[i+1])
+         int complement = target - nums[i];
+         cout << "complement "<<complement << endl;
+         if (umap.count(complement))
          {
 
             cout << "nums i"<<nums[i] << endl;
-            result.push_back(i);
-            result.push_back(i+1);
-         } else if((nums[i] == target - nums[nums.size() - 1- i])) {
-             result.push_back(i);
-             result.push_back(nums.size() - 1- i);
+            cout << "umap"<<umap[i] << endl;
+            return {umap[complement], i};
+            // result.push_back(i);
+            // result.push_back(i+1);
+         } 
+            umap[nums[i]] = i;
          }
-
-      };
-      return result;
-    }
+         return {};
+      }
+      
 };
 
 int main()
 {
    Solution two_sum;
-   vector<int> nums = {2, 7, 11, 15};
+   vector<int> nums = {2, 11, 7, 15};
    vector<int> *numsPointer = &nums;
 
    int target = 9;
@@ -45,6 +48,7 @@ int main()
    int result_array[vector_size];
    for (int i = 0; i < vector_size; ++i) {
     result_array[i] = result[i];
+    cout << "result" <<result[i] <<endl;
 }
    // copy(result.begin(), result.end(), result_array)
 
