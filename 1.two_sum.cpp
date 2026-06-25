@@ -21,7 +21,7 @@ public:
          {
 
             cout << "nums i"<<nums[i] << endl;
-            cout << "umap"<<umap[i] << endl;
+            cout << "umap"<<umap[complement] << endl;
             return {umap[complement], i};
             // result.push_back(i);
             // result.push_back(i+1);
